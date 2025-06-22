@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCraft Studios | Professional Web Development</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"rel="stylesheet"/>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #f97316;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            padding: 20px 0;
+            transition: all 0.5s ease;
+        }
+
+        .navbar-scrolled {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+
+            .navbar-brand {
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: #0c5bc9; 
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: brandIntro 0.6s ease forwards;
+        transition: all 0.4s ease;
+        }
+
+        .navbar-brand:hover {
+        letter-spacing: 1.5px;
+        transform: translateY(-2px);
+        /* text-shadow:
+            0 0 8px rgba(0, 136, 255, 0.3),
+            0 0 16px rgba(0, 136, 255, 0.25); */
+        }
+
+
+         @keyframes brandIntro {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                }
+         }
+        .navbar-brand::after {
+                content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #0080f7, #00f2fe);
+            border-radius: 10px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar-brand:hover::after {
+        transform: scaleX(1);
+        }
+
+
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #0080f7, #00f2fe);
+            border-radius: 10px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-link:hover:after {
+            transform: scaleX(1);
+        }
+        .btn2{
+            background-color: #0c5bc9;
+            padding: 10px 24px;
+            font-weight: 500;
+            transition: all 0.1s ease;
+            margin-top: 1vh;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 10px 24px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1vh;
+            
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-primary {
+            border-color: var(--primary);
+            color: var(--primary);
+            padding: 10px 24px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 100%;
+            background-color: #f0f9ff;
+            border-radius: 0 0 0 100px;
+            z-index: -1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 36px;
+            line-height: 1.6;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .feature-card {
+            padding: 32px 16px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        /* .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+        } */
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background-color: rgba(255, 255, 255, 0.86);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+            color: var(--primary);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.278);
+
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .feature-text {
+            color: white;
+            line-height: 1.6;
+        }
+
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 24px;
+            margin: 5px;
+            border-radius: 30px;
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .portfolio-organizer{
+            display: flex;
+            background: #000;
+            width: 100%;
+            min-height: fit-content;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.278);
+            
+            
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-title {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-category {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card {
+    padding: 32px;
+    border-radius: 16px;
+    margin: 15px 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.493);
+
+    background: linear-gradient(-45deg,
+        hsla(192, 100%, 50%, 1),
+        hsla(225, 89%, 47%, 1),
+        hsla(280, 85%, 55%, 1),
+        hsla(192, 100%, 50%, 1)
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 20s ease infinite;
+
+    color: black;
+    transition: all 0.3s ease;
+    }
+
+    @keyframes gradientFlow {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            color: rgb(255, 255, 255);
+            
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 5px;
+            line-height: 12px;
+            
+            /* background: linear-gradient(to bottom, #cacdd8, #e0e2eb, #ffffff); */
+            background-color:#cacdd8;background: linear-gradient(135deg, #cacdd8, #ffffff);background: linear-gradient(to right, #cacdd8, #dbe0ea, #ffffff);
+
+
+            border-radius: 20px;
+        
+
+        }
+
+        .testimonial-author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 16px;
+            background-color: #000000;
+            
+        }
+
+        .testimonial-author-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-author-title {
+            font-size: 0.9rem;
+            color: rgb(0, 0, 0);
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .client-logo {
+            height: 40px;
+            margin: 20px 40px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            /* background-color: #0c5bc9; */
+            border-radius: 10px;
+            background-image: linear-gradient( 135deg, #52E5E7 10%, #130CB7 100%);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.414);
+
+
+        }
+        .link-info{
+            text-decoration: none;
+            color: #2f2d2d;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            opacity: 0;
+            
+        }
+        .link-info a{
+            color: #fffcfc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 1s ease;
+        }
+        
+        .team-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            scale: 0.8;
+        }
+
+        .team-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .team-img {
+            transform: scale(1.05);
+        }
+        .team-member:hover .link-info {
+            /* color: var(--primary); */
+            transform: translateY(-4px);
+            opacity: 1;
+            
+        }
+        
+
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-shadow: 2px 0px 2px #474747;
+            
+
+
+        }
+
+        .team-position {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            text-shadow: 3px 0px 2px #474747;
+
+        }
+
+        .contact-form {
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.356);
+            background-color: white;
+        }
+        .contact-form h5{
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #f0f9ff;
+            z-index: -1;
+        }
+        #start-project-card{
+            background-image: linear-gradient( 135deg, #52E5E7 10%,#1a8fc1 50%, #0c2bb7 100%);
+            border-radius: 20px;
+            padding: 30px;
+            color: #000;
+        }
+        
+        #submit-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    background: linear-gradient(-45deg,
+        #3a8ef6,
+        #0d41e1,
+        #15d9d9,
+        #0d41e1,
+        #3a8ef6
+    );
+    background-size: 300% 300%;
+    animation: btnGradientFlow 6s ease infinite;
+    box-shadow: 0 4px 15px rgba(0, 110, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #submit-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 110, 255, 0.5);
+    }
+
+@keyframes btnGradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+        .footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 80px 0 40px;
+            
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-link {
+            margin-bottom: 12px;
+        }
+
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(
+    180deg,
+    rgb(0, 55, 255) 50%,
+    hsla(186, 100%, 69%, 1) 100%,
+    rgb(0, 106, 255) 100%
+  );
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+         
+        #bulb {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+            z-index: 20;
+        }
+
+       .navbar:hover #bulb{
+            text-shadow: 0 0 10px rgb(255, 238, 0), 0 0 20px rgb(255, 238, 0),0 0 30px rgb(255, 238, 0);
+        color: rgb(255, 238, 0);
+        transition: all  ease-in-out 1s;
+
+        }
+        .hero-subtitle span {
+        opacity: 0;
+        display: inline-block;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .hero-subtitle span.visible {
+        opacity: 1;
+        transform: translateY(0);
+        }
+        @keyframes rotate360 {
+        to {
+            transform: rotate(360deg);
+        }
+        }
+
+        .btn-primary:hover i {
+        animation: rotate360 0.4s linear;
+        }
+        #growup {
+        transition: transform 0.4s ease, text-shadow 0.4s ease;
+        margin-left: 2px;
+        font-size: 20px;
+        }
+
+        #growupbtn:hover #growup {
+        transform: rotate(30deg) translateY(-2px);
+        text-shadow: 0 0 10px rgb(0, 229, 255), 0 0 20px rgb(0, 229, 255),0 0 30px rgb(0, 229, 255);
+        color: rgb(0, 247, 255);
+        transition: all  ease-in-out 1s;
+
+        }
+        #workdown {
+        transition: transform 0.4s ease, text-shadow 0.4s ease;
+        margin-left: 2px;
+        font-size: 20px;
+        }
+        
+         /* service we provides*/
+         .feature-card {background-image: linear-gradient(to right, #56CCF2 0%, #2F80ED  51%, #56CCF2  100%)}
+         .feature-card {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .feature-card:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+         
+
+        #workdownbtn:hover #workdown {
+        transform: rotate(30deg) translateY(-2px);
+        text-shadow: 0 0 10px rgb(0, 229, 255), 0 0 20px rgb(0, 229, 255),0 0 30px rgb(0, 229, 255);
+        color: rgb(0, 247, 255);
+        transition: all  ease-in-out 1s;
+
+        }
+        /* #portfolio:hover #diamond {
+        transform: rotate(30deg) translateY(-2px);
+        text-shadow: 0 0 10px rgb(0, 229, 255), 0 0 20px rgb(0, 229, 255),0 0 30px rgb(0, 229, 255);
+        color: rgb(0, 247, 255);
+        transition: all  ease-in-out 3s;
+
+        }
+        #services:hover #focus{
+         text-shadow: 0 0 10px rgb(255, 238, 0), 0 0 20px rgb(255, 238, 0),0 0 30px rgb(255, 238, 0);
+        color: rgb(225, 235, 0);
+        transition: all  ease-in-out 3s;
+
+        } */
+
+
+
+        .fade-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 991px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .hero {
+                padding: 120px 0 80px;
+            }
+            .section {
+                padding: 80px 0;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            .hero-bg {
+                width: 100%;
+            }
+            .hero {
+                padding: 100px 0 60px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .feature-card, .testimonial-card, .contact-form {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top fade-up">
+        <div class="container">
+            <a class="navbar-brand" href="#">VR Stores</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="careers.html">Careers</a>
+                    </li>
+                </ul>
+                <a href="#contact" id="navbtn" class="btn btn-primary ms-lg-4">Start a Project <span>
+                <i id="bulb" style="font-weight: 200; margin-left: 5px; animation-duration: 0.4s; scale: 1.1;" class="ri-lightbulb-fill"></i></span></a>
+            </div>
+        </div>
+    </nav>
+   
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-up">
+                        <h1 class="hero-title fade-up">
+                        We Build
+                        <!-- <span style="position: relative; display: inline-block; ">
+                        <span style="position: relative; z-index: 2; color: rgb(0, 0, 0);">Build</span>
+                        <svg style="position: absolute; scale:2.5; top: -60%; left: 3%; z-index:22; rotate: 90deg;" id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">                    <defs>                         <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">                            <stop id="stop1" stop-color="rgba(0, 231.242, 255, 1)" offset="0%"></stop>                            <stop id="stop2" stop-color="rgba(47.612, 110.585, 192.075, 1)" offset="100%"></stop>                        </linearGradient>                    </defs>                <path fill="none" d="M15.6,0.8C15.6,12.6,7.8,25.1,0.6,25.1C-6.5,25.1,-13,12.6,-13,0.8C-13,-11,-6.5,-22,0.6,-22C7.8,-22,15.6,-11,15.6,0.8Z" width="100%" height="100%" transform="translate(50 50)" stroke-width="1" style="transition: 0.3s;" stroke="url(#sw-gradient)"></path>              </svg>
+                        </span> -->
+
+                        Digital 
+                        Stores
+                        That 
+                        Leave 
+                        An 
+                        Impression
+                        </h1>
+
+                        <p class="hero-subtitle fade-up">
+                                <span>We</span> <span>don’t</span> <span>just</span> <span>build</span> <span>websites</span> <span>that</span>
+                                <span>grow</span> <span>your</span> <span>business.</span> <span>We</span> <span>build</span> <span>experiences,</span>
+                                <span>ones</span> <span>that</span> <span>last</span> <span>long</span> <span>in</span> <span>your</span>
+                                <span>customers’</span> <span>minds.</span> <span>Get</span> <span>in</span> <span>touch</span> <span>with</span>
+                                <span>us,</span> <span>and</span> <span>let</span> <span>us</span> <span>do</span> <span>the</span> <span>magic</span>
+                                <span>for</span> <span>you.</span>
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <a href="#start-project" id="growupbtn" class="btn btn-primary me-3 mb-3 fade-up">Let's Grow <span style="font-weight: 400;"><i id="growup" class="ri-arrow-up-double-fill"></i></span></a>
+                        <a href="#portfolio" class="btn2 btn-primary  mb-3 fade-up" id="workdownbtn" style="text-decoration: none; color: white;">View Our Work <span><i class="ri-vip-crown-line" id="workdown"></i></span> </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-up" style=" transition: all ease 0.9s; position: relative;">
+                    
+                    <img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team working together" class="img-fluid rounded-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container fade-up "">
+            <h2 id="whatdowedo" class="section-title fade-up "><span style=" padding: 8px ; color: rgba(0, 0, 0, 0.892); scale: 0.9; border-radius: 6px; margin-bottom: 10px;">What We Do <span><i id="focus" style="font-weight: 100;" class="ri-focus-2-line"></i></span></span></h2>
+            <p class="section-subtitle fade-up">Lets put the cutting-edge, statistic growth websites aside that we and many others build. What we in particular do, that is exclusive to us, is we build websites keeping more than just numbers in mind, we build prioritizing your satisfaction. </p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="feature-title">Web Development</h3>
+                        <p class="feature-text">We build responsive, high-performance websites that look great on any device and help businesses grow online.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 fade-up" style="animation-delay: 0.2s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Mobile Applications</h3>
+                        <p class="feature-text">Our team creates intuitive mobile applications that provide seamless experiences and solve real user problems.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 fade-up" style="animation-delay: 0.3s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="feature-title">UI/UX Design</h3>
+                        <p class="feature-text">We design beautiful, user-centered interfaces that make products intuitive, accessible, and enjoyable to use.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 fade-up" style="animation-delay: 0.3s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <h3 class="feature-title">Adds Production</h3>
+                        <p class="feature-text">Our in-house team handles everything: scriptwriting, shooting, animation, editing, and post-production.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 fade-up" style="animation-delay: 0.3s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ri-line-chart-line"></i>
+                        </div>
+                        <h3 class="feature-title">Analytics & Strategy</h3>
+                        <p class="feature-text"> Our analytics and growth strategies help you understand your audience and make smarter business decisions.</p>
+                    </div>
+                </div><div class="col-md-4 mb-4 fade-up" style="animation-delay: 0.3s;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="ri-team-fill"></i>
+                        </div>
+                        <h3 class="feature-title">Media Management</h3>
+                        <p class="feature-text">We manage your brand’s social presence end-to-end — from content creation to audience engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section bg-light">
+        <div class="container">
+            <h2 id="portfolio-header" class="section-title fade-up"><span style=" padding: 8px ; color: rgba(0, 0, 0, 0.892); border-radius: 6px; scale: 0.9;">Our recent work<span><i id="diamond" style="font-size: 2.2rem; margin-left: 5px;" class="ri-vip-diamond-fill"></i></span> <span></span></span></h2>
+            <p class="section-subtitle fade-up">Check out some of our latest projects and see how we've helped our clients achieve their goals.</p>
+            
+            <div class="portfolio-filter fade-up">
+                <button class="filter-btn " data-filter="all">All</button>
+                <button class="filter-btn " data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="app">Mobile Apps</button>
+                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+                <button class="filter-btn" data-filter="adds">Adds Production</button>
+
+
+
+            </div>
+            
+            <div id="portfolio-organizer" class="row">
+                <div class="col-md-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="portfolio-item" data-category="web">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Web Project" class="portfolio-img">
+                       <!-- <video src="https://v1.pinimg.com/videos/mc/expMp4/44/81/f1/4481f1c95c6b75c4056cb1cc106013ca_t3.mp4" autoplay muted loop playsinline style="width: 90%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; display: block; margin: auto;"></video> -->
+
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">E-Commerce Platform</h4>
+                            <p class="portfolio-category">Web Development</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="portfolio-item" data-category="design">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Web Project" class="portfolio-img">
+                       <!-- <video src="https://cdn.dribbble.com/userupload/43368020/file/original-2b90e85e40b0ae05eb7e65309db52d8f.mp4" autoplay muted loop playsinline style="width: 90%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; display: block; margin: auto;"></video> -->
+
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">UI/UX Design</h4>
+                            <p class="portfolio-category">Finance expert</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="portfolio-item" data-category="adds">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="adds" class="portfolio-img">
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">Add Production</h4>
+                            <p class="portfolio-category">makings adds</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-md-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="portfolio-item" data-category="app">
+                        <img src="https://i.pinimg.com/736x/fe/e4/29/fee4296f057a5d5b17bd5ca60dba08a5.jpg" alt="mobiledev" class="portfolio-img">
+                       <!-- <video src="https://cdn.dribbble.com/userupload/43368020/file/original-2b90e85e40b0ae05eb7e65309db52d8f.mp4" autoplay muted loop playsinline style="width: 90%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; display: block; margin: auto;"></video> -->
+
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">Mobile Apps</h4>
+                            <p class="portfolio-category">Music app</p>
+                        </div>
+                    </div>
+                    
+                </div><div class="col-md-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="portfolio-item" data-category="design">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Web Project" class="portfolio-img">
+                       <!-- <video src="https://cdn.dribbble.com/userupload/42631864/file/large-0970911c267cd3181982eef8f855981f.mp4" autoplay muted loop playsinline style="width: 90%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; display: block; margin: auto;"></video> -->
+
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">UI/UX Design</h4>
+                            <p class="portfolio-category">For Duolingo</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                   <div class="col-md-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="portfolio-item" data-category="apps">
+                        <img src="https://i.pinimg.com/736x/fe/e4/29/fee4296f057a5d5b17bd5ca60dba08a5.jpg" alt="mobiledev" class="portfolio-img">
+                       <!-- <video src="https://cdn.dribbble.com/userupload/16276402/file/original-daaad96e3b18b6a6e1ac798fe000ea4a.mp4" autoplay muted loop playsinline style="width: 90%; aspect-ratio: 4/3; object-fit: cover; border-radius: 12px; display: block; margin: auto;"></video> -->
+
+                        <div class="portfolio-overlay">
+                            <h4 class="portfolio-title">Mobile Apps</h4>
+                            <p class="portfolio-category">Screen Time Mobile App</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-up">These Guys Are Happy <span><i class="ri-emotion-happy-fill"></i></span>
+            </h2>
+            <p class="section-subtitle fade-up">In this world where trust is a rarity, more so in the digital world, to help you,here’s what people who were in the same position as you are right now, say about their experience of working with us.</p>
+            
+            <div class="row">
+                <div class="col-md-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"WebCraft helped us transform our online presence. Their team was professional, responsive, and delivered a website that exceeded our expectations."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client" class="testimonial-author-img">
+                            <div >
+                                <h5 class="testimonial-author-name">Sarah Johnson</h5>
+                                <p class="testimonial-author-title">CEO, FashionHub</p>
+                                <div class="flex" style="color: rgb(255, 225, 0);"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Super smooth experience! Got exactly what I needed for my Brand file compony. Fast, reliable, and very helpful team. Highly recommend!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://i.pinimg.com/736x/7c/f4/31/7cf431c995558db11274220e28ba41f3.jpg" alt="Client" class="testimonial-author-img">
+                            <div >
+                                <h5 class="testimonial-author-name">Karan Singh</h5>
+                                <p class="testimonial-author-title">CEO, Brand file</p>
+                                <div class="flex" style="color: rgb(255, 225, 0);"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-up" style="animation-delay: 0.1s;">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"As a small cupcake business, we needed an online presence — and this VR store agency delivered exactly that! They built us a beautiful."</p>
+                        <div class="testimonial-author">
+                            <img src="https://i.pinimg.com/736x/ea/a4/88/eaa488ee0bbef9a2670033d6317c85a7.jpg" alt="Client" class="testimonial-author-img">
+                            <div >
+                                <h5 class="testimonial-author-name">Aman jain</h5>
+                                <p class="testimonial-author-title">CEO, cupcake</p>
+                                <div class="flex" style="color: rgb(255, 225, 0);"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- More testimonials would be here -->
+           <!-- </div>
+            <div class="client-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Google" class="client-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Slack_Technologies_Logo.svg/1280px-Slack_Technologies_Logo.svg.png" alt="Slack" class="client-logo">
+                
+            </div>
+        </div>-->
+            <!-- More client logos would be here -->
+    </section>
+
+    <!-- Team Section -->
+    <section id="about" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title fade-up">Artisans Behind The Curtain <span><i class="ri-seedling-fill"></i></span></h2>
+            <p class="section-subtitle fade-up">Meet the individuals and feel safe with the persons you are entrusting your website to.</p>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 fade-up" style="animation-delay: 0.1s; ">
+                    <div class="team-member">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1640531005390-38bd92755d6a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fGNlb3xlbnwwfHwwfHx8MA%3D%3D" alt="Team Member" class="team-img">
+                        </div>
+                        <h4 class="team-name" style="color: #ffffff; text-align: center;">karan</h4>
+                        <p class="team-position" style="color: rgba(255, 255, 254, 0.921); text-align: center;">Founder & CEO</p>
+                        <div class="link-info" style="width: 100% ;display: flex; justify-content: center; align-items: center;">
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 fade-up" style="animation-delay: 0.1s; ">
+                    <div class="team-member">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1702449269565-8bbe32972f65?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGhhcHB5JTIwcGVvcGxlJTIwbWFufGVufDB8fDB8fHww" alt="Team Member" class="team-img">
+                        </div>
+                        <h4 class="team-name" style="color: #ffffff; text-align: center;">Srijen</h4>
+                        <p class="team-position" style="color: rgba(255, 255, 254, 0.921); text-align: center;">co-founder</p>
+                        <div class="link-info" style="width: 100% ;display: flex; justify-content: center; align-items: center;">
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                            
+                        </div>
+                    </div>
+                </div><div class="col-lg-3 col-md-6 fade-up" style="animation-delay: 0.1s; ">
+                    <div class="team-member">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1620828771830-fb3fa87866b6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZSUyMGF0JTIwd29ya3xlbnwwfHwwfHx8MA%3D%3D" alt="Team Member" class="team-img">
+                        </div>
+                        <h4 class="team-name" style="color: #ffffff; text-align: center;">Somya</h4>
+                        <p class="team-position" style="color: rgba(255, 255, 254, 0.921); text-align: center;">Technical lead</p>
+                        <div class="link-info" style="width: 100% ;display: flex; justify-content: center; align-items: center;">
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 fade-up" style="animation-delay: 0.1s; ">
+                    <div class="team-member">
+                        <div class="team-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1640531005077-ea1edfa38c23?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGNlb3xlbnwwfHwwfHx8MA%3D%3D" alt="Team Member" class="team-img">
+                        </div>
+                        <h4 class="team-name" style="color: #fffefe; text-align: center;">krishna</h4>
+                        <p class="team-position" style="color: rgba(255, 255, 254, 0.921); text-align: center;">Analytics lead</p>
+                        <div class="link-info" style="width: 100% ;display: flex; justify-content: center; align-items: center;">
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <!--Co-founder(CMO)-->
+                <!--followed by development team-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section position-relative">
+        <!-- <div class="contact-bg"></div> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0 fade-up" style="background-image: linear-gradient( 135deg, #52E5E7 10%,#1a8fc1 50%, #0c2bb7 100%); padding: 30px; border-radius: 12px; animation-delay: 0.1s ; color: white;">
+                    <h2 class="section-title text-start" style="color: #000;">Join Our Team <span><i class="ri-team-fill"></i></span></h2>
+                    <p class="mb-4">We're always looking for talented individuals to join our team. If you're passionate about creating amazing digital experiences, we'd love to hear from you.</p>
+                    
+                    <div class="mb-4">
+                        <h5 class="mb-3"style="color: #000;">Why Work With Us?</h5>
+                        <div class="d-flex mb-3">
+                            <div class="me-3 text" style="color: #0055ff"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h6 class="mb-1">Challenging Projects</h6>
+                                <p class="text-muted mb-0"><span style="color: white;">Work on diverse and exciting projects for clients across industries.</span></p>
+                            </div>
+                        </div>
+                        <!-- More benefits would be here -->
+                    </div>
+                    
+                    <div>
+                        <h5 class="mb-3"style="color: #000;">Get In Touch</h5>
+                        <div class="d-flex mb-3">
+                            <div class="me-3 text" style="color: #0055ff"><i class="fas fa-map-marker-alt"></i></div>
+                            <p class="mb-0">123 Innovation Street, Tech City, TC 12345</p>
+                        </div>
+                        <!-- More contact details would be here -->
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-up" style="animation-delay: 0.3s;">
+                    <div class="contact-form">
+                        <h3 class="mb-4" style="font-weight: 800;">Interested in joining us? Let's talk!</h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="name" class="form-label" style="font-weight: 500;">Your Name</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="email" class="form-label" style="font-weight: 500;">Email Address</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                                </div>
+                            </div>
+                            <!-- More form fields would be here -->
+                            <button type="submit" class="btn btn-primary w-100" style="background: linear-gradient(0deg, #20b8f4, #014CFF);">Submit Application</button>
+                            <h4 style=" text-align: center; margin-top: 25px; font-weight: 600;">"Fill out your details and let’s <span style="color: #014CFF;">Start</span> something amazing together."</h4>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- New Lead Generation Section -->
+<section id="start-project" class="section position-relative bg-light">
+    <div class="contact-bg" style="right: 0; left: auto; width: 60%; border-radius: 0 0 100px 0;"></div>
+    <div class="container">
+        <div class="row">
+            <div id="start-project-card" class="col-lg-6 mb-5 mb-lg-0 fade-up">
+                <h2 class="section-title text-start">Start Your Project <span style="margin-left: 5px;"><i class="ri-run-line"></i></span></h2>
+                <p class="mb-4" style="color: white; font-weight: 400;">Let's create something amazing together. Tell us about your project needs and we'll craft a solution that exceeds your expectations.</p>
+                
+                <div class="mb-4">
+                    <h5 class="mb-3">Why Choose Us?</h5>
+                    <div class="d-flex mb-3">
+                        <div class="me-3 text" style="color: #0055ff"><i class="fas fa-check-circle"></i></div>
+                        <div>
+                            <h6 class="mb-1">Proven Expertise</h6>
+                            <p class="text mb-0" style="color: rgba(255, 255, 255, 0.83);">500+ successful projects delivered across 15 industries</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="me-3 text" style="color: #0055ff"><i class="fas fa-check-circle"></i></div>
+                        <div>
+                            <h6 class="mb-1">Transparent Process</h6>
+                            <p class="text mb-0" style="color: rgba(255, 255, 255, 0.83);">Weekly updates and milestone-based delivery</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <div class="me-3 text" style="color: #0055ff"><i class="fas fa-check-circle"></i></div>
+                        <div>
+                            <h6 class="mb-1">Dedicated Support</h6>
+                            <p class="text mb-0" style="color: rgba(255, 255, 255, 0.83);">24/7 technical support post-launch</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="mb-3">Quick Start</h5>
+                    <div class="d-flex mb-3">
+                        <div class="me-3 text" style="color: #0055ff;"><i class="fas fa-phone-alt"></i></div>
+                        <div style="color: rgba(255, 255, 255, 0.83);">
+                            <p class="mb-1 fw-500">Schedule a Call</p>
+                            <p class="text mb-0">Mon-Fri 9AM - 6PM (EST)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 fade-up" style="animation-delay: 0.3s;">
+                <div class="contact-form">
+                    <h3 class="mb-4" style="font-weight: 600;">Get Started Now</h3>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="name" class="form-label" style="font-weight: 600;">Your Name *</label>
+                                <input type="text" id="name" class="form-control" placeholder="John Smith" required>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="email" class="form-label" style="font-weight: 600;">Email *</label>
+                                <input type="email" id="email" class="form-control" placeholder="john@company.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company" class="form-label" >Company Name</label>
+                            <input type="text" id="company" class="form-control" placeholder="Your company name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="project-type" class="form-label" ><span style="font-weight: 600;">Project Type *</span></label>
+                            <select id="project-type" class="form-select" required>
+                                <option value="">Select Project Type</option>
+                                <option>Corporate Website</option>
+                                <option>E-Commerce Store</option>
+                                <option>Web Application</option>
+                                <option>Mobile App</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget" class="form-label" style="font-weight: 600;">Estimated Budget *</label>
+                            <select id="budget" class="form-select" required>
+                                <option value="">Select Budget Range</option>
+                                <option>$5,000 - $10,000</option>
+                                <option>$10,000 - $25,000</option>
+                                <option>$25,000 - $50,000</option>
+                                <option>$50,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label" style="font-weight: 600;">Project Details *</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="Describe your project goals and requirements..." required></textarea>
+                        </div>
+                        
+                        <button id="submit-btn" type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Send Project Brief
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Updated Navigation Link -->
+<!-- <li class="nav-item">
+    <a class="nav-link" href="#start-project">Start Project</a>
+</li> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row" style="display: flex; align-items: center; justify-content: space-between; padding: 10px ;">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <a href="#" class="footer-brand" style="text-decoration: none;">VR Stores</a>
+                    <p class="footer-text">We create cutting-edge websites and applications that help businesses connect with their audience and achieve their goals.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <!-- More footer columns would be here -->
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="footer-text">Subscribe to our newsletter to receive updates on our latest projects, industry news, and job openings.</p>
+                    <form class="mb-3">
+                        <div class="input-group" style="background: linear-gradient(180deg,rgb(0, 64, 255) 50%,rgb(97, 237, 255) 100%,rgb(0, 106, 255) 100%); border-radius: 5px; overflow: hidden;">
+                            <input type="email" class="form-control" placeholder="Your email address" style="background: rgb(255, 255, 255); border: none; color: rgb(0, 0, 0);">
+                            <button class="btn " type="submit" style="color: white; font-weight: 600;">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 VR Stores. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+
+           const spans = document.querySelectorAll('.hero-subtitle span');
+
+            function checkVisibility() {
+            const triggerBottom = window.innerHeight * 0.9; // when 90% of viewport height
+            
+            spans.forEach((span, i) => {
+                const rect = span.getBoundingClientRect();
+                
+                if (rect.top < triggerBottom) {
+                setTimeout(() => {
+                    span.classList.add('visible');
+                }, i * 50); 
+                }
+            });
+            }
+
+            window.addEventListener('scroll', checkVisibility);
+            window.addEventListener('load', checkVisibility);
+
+        // Sticky navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+            
+            // Scroll top button
+            const scrollTop = document.getElementById('scroll-top');
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('active');
+            } else {
+                scrollTop.classList.remove('active');
+            }
+            
+            // Reveal animations on scroll
+            const fadeElements = document.querySelectorAll('.fade-up');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 50) {
+                    element.classList.add('active');
+                }
+            });
+        });
+    
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const portfolioColumns = document.querySelectorAll("#portfolio-organizer > div"); // selects all .col-md-4
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const filter = button.getAttribute("data-filter");
+
+      portfolioColumns.forEach(col => {
+        const item = col.querySelector(".portfolio-item");
+        const category = item.getAttribute("data-category");
+
+        if (filter === "all" || category === filter) {
+          col.style.display = "block";
+        } else {
+          col.style.display = "none";
+        }
+      });
+    });
+  });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+        
+        // Initial animation trigger
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const initialFadeElements = document.querySelectorAll('.fade-up');
+                initialFadeElements.forEach((element, index) => {
+                    setTimeout(() => {
+                        element.classList.add('active');
+                    }, index * 100);
+                });
+            }, 100);
+        });
+
+        // Get the scroll-to-top button
+const scrollTopBtn = document.getElementById('scroll-top');
+
+// Add click event listener to the button
+scrollTopBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+    </script>
+
+    
+</body>
+</html>
